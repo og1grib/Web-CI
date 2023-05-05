@@ -9,6 +9,7 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public abstract class BaseTest {
     public static final ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
@@ -20,8 +21,13 @@ public abstract class BaseTest {
         Configuration.driverManagerEnabled = true;
         Configuration.browserSize = "1440x900";
         Configuration.timeout = 5000;
+        Configuration.remote = "http://localhost:4444/wd/hub";
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("enableVNC",true);
+        capabilities.setCapability("enableVideo",true);
+        Configuration.browserCapabilities = capabilities;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-        System.setProperty("chromeoptions.args", "\"--no-sandbox\",\"--disable-dev-shm-usage\",\"--remote-debugging-port=9222\"");
+//        System.setProperty("chromeoptions.args", "\"--no-sandbox\",\"--disable-dev-shm-usage\",\"--remote-debugging-port=9222\"");
     }
 
     @After
