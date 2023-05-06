@@ -5,9 +5,8 @@ import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
-import static tests.BaseTest.config;
-
 import static com.codeborne.selenide.Selenide.$;
+import static tests.BaseTest.config;
 
 
 public class HomePage {
