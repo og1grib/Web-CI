@@ -1,6 +1,5 @@
 package tests;
 
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import jdk.jfr.Description;

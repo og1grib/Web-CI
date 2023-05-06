@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$$;
 
 
 public class SearchPage {
+
     private final static By MAP_BUTTON = By.xpath("//div[@ data-testid='map-trigger']");
 
     private final static By MAP_OPEN = By.xpath("//div[@ class='map_full_overlay__mask']");
@@ -123,5 +124,4 @@ public class SearchPage {
     public String checkHotelName2() {
         return $(NAME_HOTEL_2).text();
     }
-
 }
