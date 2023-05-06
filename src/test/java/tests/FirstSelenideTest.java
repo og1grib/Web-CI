@@ -48,7 +48,7 @@ public class FirstSelenideTest extends BaseTest {
     @Description("Находим отель, открываем его страницу через карту и проверяем совпадение данных на новой странице отеля")
     public void bookingFindHotel() {
         homePage.openHomePage()
-                .acceptCookie()
+//                .acceptCookie()
                 .searchCity(city)
                 .selectData();
         $(DATA_START).click();

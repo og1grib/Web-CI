@@ -42,7 +42,7 @@ public class SecondSelenideTest extends BaseTest {
     @Description("Добавляем нужный отель в избранное и удаляем его из избранного на новой странице")
     public void bookingFindHotel2() {
         homePage.openHomePage()
-                .acceptCookie()
+//                .acceptCookie()
                 .searchCity(city)
                 .selectData();
         $(DATA_START).click();
