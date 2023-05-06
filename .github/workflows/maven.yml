@@ -1,5 +1,8 @@
 name: WEB tests
 
+env:
+  OS: ubuntu-latest
+
 on:
   push
 
@@ -17,12 +20,13 @@ jobs:
       - name: "Запуск selenoid-ui"
         run: ./cm selenoid-ui start
       - name: "Использование ветки main репозитория"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v1
       - name: "Запуск тестов"
         run: mvn clean test
         continue-on-error: true
       - name: "Генерация allure-report"
         uses: simple-elf/allure-report-action@master
+        if: always()
         id: allure-report
         with:
           allure_results: target/allure-results
@@ -31,7 +35,8 @@ jobs:
           allure_history: target/allure-history
 
       - name: "Создание ветки gh-pages содержащей allure report"
-        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        uses: peaceiris/actions-gh-pages@v2
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}

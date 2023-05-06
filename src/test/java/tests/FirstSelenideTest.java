@@ -1,9 +1,9 @@
 package tests;
 
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import jdk.jfr.Description;
+import io.qameta.allure.*;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.openqa.selenium.By;
@@ -13,12 +13,14 @@ import pages.SearchPage;
 
 import java.time.LocalDate;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.switchTo;
 
+@Epic("Web tests")
 @Feature("First Test")
+@Story("Проверка корректности отображения данных")
+@Link(name = "ссылка на сайт", url = "http://www.booking.com/")
 @Owner("Григорий Герасимов")
-@Description("Находим отель, открываем его страницу через карту и проверяем совпадение данных на новой странице отеля")
-@DisplayName("Находим отель, открываем его страницу через карту и проверяем совпадение данных на новой странице отеля")
 public class FirstSelenideTest extends BaseTest {
     HomePage homePage = new HomePage();
     SearchPage searchPage = new SearchPage();
@@ -43,6 +45,8 @@ public class FirstSelenideTest extends BaseTest {
 //     1.8 нажать на прыгающий маркер на карте
 //     1.9 на открывшейся странице отеля проверить название отеля, количество звезд, среднюю оценку, количество отзывов и стоимость
     @Test
+    @DisplayName("Проверка корректности отображения данных отеля на карте")
+    @Description("Находим отель, открываем его страницу через карту и проверяем совпадение данных на новой странице отеля")
     public void bookingFindHotel() {
         homePage.openHomePage()
                 .acceptCookie()
