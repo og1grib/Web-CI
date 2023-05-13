@@ -9,13 +9,10 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.MutableCapabilities;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public abstract class BaseTest {
     public static final ProjectConfig config = ConfigFactory.create(ProjectConfig.class);
-    public static MutableCapabilities browserCapabilities;
-
+//
     @Before
     public void setUp() {
         WebDriverManager.chromedriver().setup();
@@ -24,11 +21,6 @@ public abstract class BaseTest {
         Configuration.browserSize = "1440x900";
         Configuration.timeout = 5000;
         Configuration.remote = "http://localhost:4444/wd/hub";
-        MutableCapabilities chromeOptions;
-        ChromeOptions options = new ChromeOptions()
-                .setHeadless(true)
-                .addArguments("--lang=ru_RU");
-        Configuration.browserCapabilities = options;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         System.setProperty("chromeoptions.args", "\"--no-sandbox\",\"--disable-dev-shm-usage\",\"--remote-debugging-port=9222\"");
     }
