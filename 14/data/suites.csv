@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"failed","Sat May 06 21:02:15 GMT 2023","Sat May 06 21:02:30 GMT 2023","14512","","Добавляем нужный отель в избранное и удаляем его из избранного на новой странице","","tests.SecondSelenideTest","bookingFindHotel2","bookingFindHotel2","Добавляем нужный отель в избранное и удаляем его из избранного на новой странице"
-"failed","Sat May 06 21:02:30 GMT 2023","Sat May 06 21:02:42 GMT 2023","12165","","tests.FirstSelenideTest","","tests.FirstSelenideTest","bookingFindHotel","bookingFindHotel","Находим отель, открываем его страницу через карту и проверяем совпадение данных на новой странице отеля"
