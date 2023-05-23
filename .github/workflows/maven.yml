@@ -1,4 +1,4 @@
-name: WEB tests
+name: WEB tests MTS
 
 env:
   OS: ubuntu-latest
